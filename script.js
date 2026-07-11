@@ -1,99 +1,85 @@
-// =============================
-// 마우스 빛 효과
-// =============================
+// ===============================
+// 팀섭티튜의 아카이브
+// script.js
+// ===============================
 
-const light = document.getElementById("light");
+// 비밀 페이지 이동
+function goSecret(){
 
-document.addEventListener("mousemove", (e) => {
-    light.style.left = e.clientX + "px";
-    light.style.top = e.clientY + "px";
-});
+    const fade = document.getElementById("fade");
 
-// =============================
-// 숨겨진 별
-// =============================
-
-const star = document.getElementById("star");
-
-if (star) {
-
-    star.addEventListener("click", () => {
-
-        const fade = document.getElementById("fade");
-
+    if(fade){
         fade.style.opacity = "1";
 
-        fade.style.pointerEvents = "all";
-
-        fade.innerHTML = `
-        <div style="
-        text-align:center;
-        color:white;
-        font-size:28px;
-        line-height:2;">
-        관측자를 확인 중...<br><br>
-        ACCESS GRANTED
-        </div>
-        `;
-
-        setTimeout(() => {
+        setTimeout(function(){
 
             location.href = "secret.html";
 
-        },2200);
+        }, 2000);
+    }
+
+}
+
+// 비밀 페이지 코드 확인
+function checkCode(){
+
+    const input = document.getElementById("codeInput");
+
+    const result = document.getElementById("result");
+
+    if(!input || !result){
+        return;
+    }
+
+    const code = input.value.trim().toUpperCase();
+
+    switch(code){
+
+        case "PUN-001":
+
+            result.innerHTML = `
+            <h2>🔓 RECORD-004</h2>
+            <p>제푼은 처음부터 관측자가 아니었다.</p>
+            `;
+            break;
+
+        case "EDEL-001":
+
+            result.innerHTML = `
+            <h2>🔓 RECORD-005</h2>
+            <p>에델의 기록 일부가 복구되었습니다.</p>
+            `;
+            break;
+
+        default:
+
+            result.innerHTML =
+            "<span style='color:red;'>❌ ACCESS DENIED</span>";
+
+    }
+
+}
+
+// 비밀 문서 펼치기
+document.querySelectorAll(".file").forEach(function(file){
+
+    file.addEventListener("click", function(){
+
+        const hidden = file.querySelector(".hidden");
+
+        if(hidden){
+            hidden.classList.toggle("hidden");
+        }
 
     });
 
-}
-
-// =============================
-// SYSTEM LOG
-// =============================
-
-const logs=[
-
-"SYSTEM LOG",
-"관측 중...",
-"새로운 기록이 발견되었습니다.",
-"Observer Connected.",
-"ERROR : RECORD NOT FOUND",
-"기록을 불러오는 중...",
-"세계관 동기화 완료."
-
-];
-
-const log=document.getElementById("log");
-
-if(log){
-
-setInterval(()=>{
-
-log.innerHTML=logs[Math.floor(Math.random()*logs.length)];
-
-},5000);
-
-}
-
-// =============================
-// 숨겨진 키보드 코드
-// =============================
-
-let code="";
-
-document.addEventListener("keydown",(e)=>{
-
-code+=e.key.toUpperCase();
-
-if(code.length>6){
-
-code=code.slice(-6);
-
-}
-
-if(code==="EUNSEO"){
-
-location.href="secret.html";
-
-}
-
 });
+
+// 랜덤 메시지
+const secretMessage = document.getElementById("secretMessage");
+
+if(secretMessage && Math.random() < 0.15){
+
+    secretMessage.style.display = "block";
+
+}
