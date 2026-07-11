@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>등장인물</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.character{
+
+background:white;
+
+border-radius:20px;
+
+padding:25px;
+
+margin-bottom:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.character:hover{
+
+transform:translateY(-5px);
+
+}
+
+.info{
+
+display:none;
+
+margin-top:20px;
+
+padding-top:20px;
+
+border-top:2px solid #eef5ff;
+
+line-height:1.8;
+
+}
+
+.character.active .info{
+
+display:block;
+
+}
+
+.name{
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#5b8dff;
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:30px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:#5b8dff;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1> 등장인물</h1>
+
+<p>관측 가능한 인물 목록입니다.</p>
+
+<div class="character">
+
+<div class="name">
+
+ 제푼
+
+</div>
+
+<div class="info">
+
+<b>소속</b> : ???<br>
+
+<b>상태</b> : 생존<br>
+
+<b>설명</b> : 세계관의 인물.
+
+</div>
+
+</div>
+
+<div class="character">
+
+<div class="name">
+
+ 시호
+
+</div>
+
+<div class="info">
+
+<b>소속</b> : ???<br>
+
+<b>상태</b> : 생존<br>
+
+<b>설명</b> : 정보를 수집하는 인물.
+
+</div>
+
+</div>
+
+<div class="character">
+
+<div class="name">
+
+ 이안
+
+</div>
+
+<div class="info">
+
+<b>소속</b> : ???<br>
+
+<b>상태</b> : 생존<br>
+
+<b>설명</b> : 아직 알려지지 않은 존재.
+
+</div>
+
+</div>
+
+<div class="character">
+
+<div class="name">
+
+ 햇반
+
+</div>
+
+<div class="info">
+
+<b>소속</b> : ???<br>
+
+<b>상태</b> : 생존<br>
+
+<b>설명</b> : 기록에 자주 등장하는 인물.
+
+</div>
+
+</div>
+
+<a class="back" href="world.html">
+
+← 세계관으로 돌아가기
+
+</a>
+
+</div>
+
+<script>
+
+const cards=document.querySelectorAll(".character");
+
+cards.forEach(card=>{
+
+card.onclick=()=>{
+
+card.classList.toggle("active");
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

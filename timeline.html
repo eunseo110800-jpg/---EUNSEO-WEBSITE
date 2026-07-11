@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>연표</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.timeline{
+
+position:relative;
+
+margin-top:40px;
+
+padding-left:40px;
+
+}
+
+.timeline::before{
+
+content:"";
+
+position:absolute;
+
+left:12px;
+
+top:0;
+
+bottom:0;
+
+width:4px;
+
+background:#7dbbff;
+
+border-radius:10px;
+
+}
+
+.event{
+
+position:relative;
+
+background:white;
+
+padding:20px;
+
+margin-bottom:30px;
+
+border-radius:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.event:hover{
+
+transform:translateX(8px);
+
+}
+
+.event::before{
+
+content:"";
+
+position:absolute;
+
+left:-38px;
+
+top:25px;
+
+width:18px;
+
+height:18px;
+
+background:#5b8dff;
+
+border-radius:50%;
+
+border:4px solid white;
+
+}
+
+.year{
+
+font-size:24px;
+
+font-weight:bold;
+
+color:#5b8dff;
+
+margin-bottom:12px;
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:30px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:#5b8dff;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1> 연표</h1>
+
+<p>제군력을 기준으로 정리된 기록입니다.</p>
+
+<div class="timeline">
+
+<div class="event">
+
+<div class="year">
+
+제군력 1년
+
+</div>
+
+<p>
+
+ 채널 개설
+
+</p>
+
+<p>
+
+ 제군력 시작
+
+</p>
+
+<p>
+
+ 첫 번째 기록 생성
+
+</p>
+
+</div>
+
+<div class="event">
+
+<div class="year">
+
+제군력 2년
+
+</div>
+
+<p>
+
+ 아직 공개되지 않은 기록
+
+</p>
+
+</div>
+
+<div class="event">
+
+<div class="year">
+
+제군력 3년
+
+</div>
+
+<p>
+
+???
+
+</p>
+
+</div>
+
+</div>
+
+<a class="back" href="world.html">
+
+← 세계관으로 돌아가기
+
+</a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

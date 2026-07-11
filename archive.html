@@ -3,70 +3,85 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Archive</title>
+<title>기록보관소</title>
+
+<link rel="stylesheet" href="style.css">
 
 <style>
 
-body{
+.record{
 
-margin:0;
+background:white;
 
-background:#111;
+padding:25px;
 
-color:white;
+margin-bottom:18px;
 
-font-family:monospace;
+border-radius:20px;
 
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-height:100vh;
-
-}
-
-.box{
-
-text-align:center;
-
-}
-
-h1{
-
-font-size:60px;
-
-letter-spacing:8px;
-
-}
-
-p{
-
-color:#888;
-
-}
-
-button{
-
-margin-top:30px;
-
-padding:15px 40px;
-
-background:#222;
-
-color:white;
-
-border:1px solid #555;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
 
 cursor:pointer;
 
+transition:.3s;
+
 }
 
-button:hover{
+.record:hover{
 
-background:#333;
+transform:translateY(-5px);
+
+}
+
+.record h2{
+
+color:#5b8dff;
+
+margin-bottom:10px;
+
+}
+
+.content{
+
+display:none;
+
+margin-top:20px;
+
+padding-top:20px;
+
+border-top:2px solid #eef5ff;
+
+line-height:1.8;
+
+}
+
+.record.open .content{
+
+display:block;
+
+}
+
+.locked{
+
+opacity:.45;
+
+cursor:not-allowed;
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:25px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:#5b8dff;
 
 }
 
@@ -76,19 +91,87 @@ background:#333;
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<h1>ARCHIVE</h1>
+<h1> 기록보관소</h1>
 
-<p>여기까지 왔네.</p>
+<p>관측 가능한 기록입니다.</p>
 
-<button onclick="location.href='index.html'">
+<div class="record">
 
-돌아가기
+<h2>RECORD-001</h2>
 
-</button>
+<div class="content">
+
+제군력 1년.
+
+첫 번째 기록이 생성되었습니다.
 
 </div>
+
+</div>
+
+<div class="record">
+
+<h2>RECORD-002</h2>
+
+<div class="content">
+
+관측 대상 "제푼"이 최초로 확인되었습니다.
+
+</div>
+
+</div>
+
+<div class="record">
+
+<h2>RECORD-003</h2>
+
+<div class="content">
+
+시호와 이안의 기록이 추가되었습니다.
+
+</div>
+
+</div>
+
+<div class="record locked">
+
+<h2>████████</h2>
+
+<p>잠긴 기록입니다.</p>
+
+</div>
+
+<div class="record locked">
+
+<h2>???</h2>
+
+<p>열람 권한이 없습니다.</p>
+
+</div>
+
+<a class="back" href="index.html">
+
+← 메인으로 돌아가기
+
+</a>
+
+</div>
+
+<script>
+
+document.querySelectorAll(".record:not(.locked)").forEach(card=>{
+
+card.onclick=()=>{
+
+card.classList.toggle("open");
+
+}
+
+});
+
+</script>
 
 </body>
 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>제군력</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.info{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+.info h2{
+
+color:#5b8dff;
+
+margin-bottom:15px;
+
+}
+
+.rule{
+
+background:#eef7ff;
+
+padding:20px;
+
+border-left:6px solid #5b8dff;
+
+border-radius:12px;
+
+margin-top:20px;
+
+}
+
+.today{
+
+margin-top:25px;
+
+background:#dff1ff;
+
+padding:20px;
+
+border-radius:15px;
+
+font-size:22px;
+
+font-weight:bold;
+
+text-align:center;
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:30px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:#5b8dff;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1> 제군력</h1>
+
+<p>세계관에서 사용하는 시간 체계입니다.</p>
+
+<div class="info">
+
+<h2>제군력이란?</h2>
+
+<p>
+
+제군력은 팀섭티튜트 세계관에서 사용하는 독자적인 달력입니다.
+
+</p>
+
+<p>
+
+기준일은 <b>2026년 5월 23일</b>이며,
+
+이 날이 <b>제군력 1년 1월 1일</b>입니다.
+
+</p>
+
+<div class="rule">
+
+<b>시간 변환 규칙</b>
+
+<br><br>
+
+현실 <b>7일</b>
+
+↓
+
+제군력 <b>1.5개월</b>
+
+</div>
+
+</div>
+
+<div class="today" id="today">
+
+현재 제군력 계산 중...
+
+</div>
+
+<a class="back" href="world.html">
+
+← 세계관으로 돌아가기
+
+</a>
+
+</div>
+
+<script>
+
+const start=new Date("2026-05-23");
+
+const today=new Date();
+
+const diff=today-start;
+
+const days=Math.floor(diff/(1000*60*60*24));
+
+const months=Math.floor(days/7*1.5);
+
+const year=Math.floor(months/12)+1;
+
+const month=(months%12)+1;
+
+document.getElementById("today").innerHTML=
+
+` 오늘은 <br><br>
+<b>제군력 ${year}년 ${month}월</b> 입니다.`;
+
+</script>
+
+</body>
+
+</html>
