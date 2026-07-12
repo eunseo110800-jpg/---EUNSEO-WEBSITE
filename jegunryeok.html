@@ -8,72 +8,73 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'맑은 고딕', sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"맑은 고딕",sans-serif;
 }
 
 body{
-    background:#f6fbff;
-    color:#444;
+background:#f6fbff;
+color:#444;
 }
 
 header{
-    background:white;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+background:white;
+padding:35px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 header h1{
-    font-size:40px;
+font-size:42px;
 }
 
 header p{
-    color:#777;
-    margin-top:10px;
+margin-top:10px;
+color:#777;
 }
 
 .container{
-    max-width:900px;
-    margin:40px auto;
-    padding:20px;
+max-width:900px;
+margin:40px auto;
+padding:20px;
 }
 
 .card{
-    background:white;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    margin-bottom:25px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+margin-bottom:25px;
 }
 
 .card h2{
-    color:#5c8dff;
-    margin-bottom:15px;
+color:#5c8dff;
+margin-bottom:15px;
 }
 
 .info{
-    background:#eef7ff;
-    border-left:6px solid #6aa8ff;
-    padding:20px;
-    border-radius:12px;
-    margin-top:20px;
+background:#eef7ff;
+border-left:6px solid #6aa8ff;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+line-height:1.8;
 }
 
 .back{
-    display:inline-block;
-    margin-top:20px;
-    color:#5c8dff;
-    text-decoration:none;
-    font-weight:bold;
+display:inline-block;
+margin-top:20px;
+color:#5c8dff;
+font-weight:bold;
+text-decoration:none;
 }
 
 footer{
-    text-align:center;
-    padding:30px;
-    color:#888;
+text-align:center;
+padding:30px;
+color:#888;
 }
 
 </style>
@@ -96,32 +97,53 @@ footer{
 <h2>제군력</h2>
 
 <p>
+
 제군력은 이 세계관에서 사용하는 고유한 시간 체계입니다.
+
 </p>
 
 <br>
 
 <p>
-제군력은 <b>채널이 개설된 날</b>을 기준으로 시작되며,
-그 날은 <b>제군력 1년 1월 1일</b>로 기록됩니다.
+
+채널 개설일인
+
+<b>2026년 5월 23일</b>을
+
+기준으로 시작됩니다.
+
 </p>
 
 <div class="info">
 
-<b> 시간 변환 규칙</b>
+<b> 현재 제군력</b>
 
 <br><br>
 
-현실의 <b>7일</b>은
+<span id="jegunNow"></span>
 
-<b>제군력 약 1.5개월</b>에 해당합니다.
+</div>
+
+<div class="info">
+
+<b>⏳ 시간 변환 규칙</b>
+
+<br><br>
+
+현실 <b>7일</b>
+
+=
+
+제군력 <b>1.5개월</b>
 
 </div>
 
 <br>
 
 <p>
-모든 사건과 기록은 제군력을 기준으로 작성됩니다.
+
+모든 기록은 제군력을 기준으로 작성됩니다.
+
 </p>
 
 </div>
@@ -132,9 +154,9 @@ footer{
 
 <p>
 
-현실에서 일주일이 지나면,
+현실에서 일주일이 지나면
 
-세계관에서는 약 한 달 반이 흐른 것으로 기록됩니다.
+세계관에서는 약 1.5개월이 흐른 것으로 기록됩니다.
 
 </p>
 
@@ -150,9 +172,39 @@ footer{
 
 <footer>
 
-제군력 기록 문서 Ver.1
+제군력 기록 문서 Ver.2
 
 </footer>
+
+<script>
+
+// ==========================
+// 제군력 자동 계산
+// ==========================
+
+// 채널 생성일
+const startDate = new Date(2026,4,23);
+
+// 오늘
+const today = new Date();
+
+// 현실에서 지난 날짜
+const diffDays = Math.floor(
+(today-startDate)/(1000*60*60*24)
+);
+
+// 현실 7일 = 제군력 1.5개월
+const totalMonths = diffDays*(1.5/7);
+
+// 년 / 개월
+const years=Math.floor(totalMonths/12);
+const months=Math.floor(totalMonths%12);
+
+// 출력
+document.getElementById("jegunNow").textContent=
+`${years}년 ${months}개월`;
+
+</script>
 
 </body>
 </html>
