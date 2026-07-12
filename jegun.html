@@ -178,32 +178,31 @@ color:#888;
 
 <script>
 
-// ==========================
-// 제군력 자동 계산
-// ==========================
+// ======================
+// 제군력 계산 (공통)
+// ======================
 
-// 채널 생성일
-const startDate = new Date(2026,4,23);
-
-// 오늘
+// 시작일 : 2026-05-23 = 제군력 1년 1월 1일
+const startDate = new Date(2026, 4, 23);
 const today = new Date();
 
 // 현실에서 지난 날짜
 const diffDays = Math.floor(
-(today-startDate)/(1000*60*60*24)
+    (today - startDate) / (1000 * 60 * 60 * 24)
 );
 
 // 현실 7일 = 제군력 1.5개월
-const totalMonths = diffDays*(1.5/7);
+const elapsedMonths = diffDays * (1.5 / 7);
 
-// 년 / 개월
-const years=Math.floor(totalMonths/12);
-const months=Math.floor(totalMonths%12);
+// 시작이 1년 1월이므로
+const totalMonths = 12 + elapsedMonths;
+
+const year = Math.floor(totalMonths / 12);
+const month = Math.floor(totalMonths % 12) + 1;
 
 // 출력
-document.getElementById("jegunNow").textContent=
-`${years}년 ${months}개월`;
-
+document.getElementById("todayJegun").textContent =
+`제군력 ${year}년 ${month}월 입니다.`;
 </script>
 
 </body>
