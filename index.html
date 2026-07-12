@@ -321,7 +321,7 @@ z-index:999;
 
 <b> 제군력</b><br>
 
-0년 1개월 19일
+<span id="jegun"></span>
 
 </div>
 
@@ -364,6 +364,21 @@ location.href="secret.html";
 },2000);
 
 }
+
+// 제군력 자동 계산
+const start = new Date("2026-05-23");
+const today = new Date();
+
+let years = today.getFullYear() - start.getFullYear();
+let months = today.getMonth() - start.getMonth();
+
+if (months < 0) {
+    years--;
+    months += 12;
+}
+
+document.getElementById("jegun").textContent =
+`${years}년 ${months}개월`;
 
 </script>
 
