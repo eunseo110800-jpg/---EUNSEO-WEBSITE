@@ -365,17 +365,20 @@ location.href="secret.html";
 
 }
 
-// 제군력 자동 계산
+// ===== 제군력 계산 =====
+
 const start = new Date("2026-05-23");
 const today = new Date();
 
-let years = today.getFullYear() - start.getFullYear();
-let months = today.getMonth() - start.getMonth();
+const diffDays = Math.floor(
+    (today - start) / (1000 * 60 * 60 * 24)
+);
 
-if (months < 0) {
-    years--;
-    months += 12;
-}
+// 현실 7일 = 제군력 1.5개월
+const totalMonths = diffDays * (1.5 / 7);
+
+const years = Math.floor(totalMonths / 12);
+const months = Math.floor(totalMonths % 12);
 
 document.getElementById("jegun").textContent =
 `${years}년 ${months}개월`;
